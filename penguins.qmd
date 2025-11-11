@@ -15,9 +15,9 @@ penguins <- penguins %>%
   clean_names()
 ```
 
-The graph below visualizes the relationship between **flipper length (in millimeters)** and **body mass (in grams)** for three penguin species from the **Palmer Penguins dataset**. Each point represents an individual penguin, and the colors distinguish between the species: 🟥 **Adelie Penguins** (*Pygoscelis adeliae*) 🟩 Chinstrap **Penguins** (*Pygoscelis antarctica*) 🟦 **Gentoo Penguins** (*Pygoscelis papua*)
+Instructions: Make a Dashboard with two rows. Row 1 should contain two graphs showing any penguin data that you'd like. Row 2 should contain a table (use knitr::kable and select if you'd like to narrow down the columns). Then customize your dashboard by adding colors, labels, interactivity,etc.
 
-Overall, the plot shows a **positive correlation** — penguins with longer flippers tend to have higher body mass.
+Optional: Add text cards, value boxes, tabs, pages, etc.
 
 ```{r}
 
@@ -40,8 +40,8 @@ ggplotly(p)
 ```
 
 ```{r}
-library(knitr)
-
+penguins <- penguins %>%
+  select(-comments)
 knitr::kable(penguins)
 ```
 

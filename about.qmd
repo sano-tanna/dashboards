@@ -1,9 +1,51 @@
 ---
-title: "About"
+title: "More Analysis"
 ---
 
 About this site
 
-```{r}
-1 + 1
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(plotly)
+library(janitor)
+library(palmerpenguins)
+
+
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(penguins, aes(x = species, y = body_mass_g, fill = species)) +
+  geom_boxplot(alpha = 0.7) +
+  theme_minimal() +
+  labs(
+    title = "Body Mass Distribution by Species",
+    x = "Species",
+    y = "Body mass (g)"
+  ) +
+  theme(legend.position = "none")
+
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(penguins, aes(x = sex, y = flipper_length_mm, fill = sex)) +
+  geom_violin(trim = FALSE, alpha = 0.7) +
+  theme_minimal() +
+  labs(
+    title = "Flipper Length Distribution by Sex",
+    x = "Sex",
+    y = "Flipper length (mm)"
+  )
+
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar(position = "dodge") +
+  theme_minimal() +
+  labs(
+    title = "Number of Penguins by Island and Species",
+    x = "Island",
+    y = "Count"
+  )
+
 ```
