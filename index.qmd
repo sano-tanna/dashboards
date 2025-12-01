@@ -1,49 +1,91 @@
 ---
-title: "Palmer Penguins Dashboard"
+title: "Shifting Seas: Ocean Climate & Marine Life Dataset"
 author: "Sano Tanna"
-format: dashboard
+format:
+  html:
+    fig-width: 10
+    fig-height: 4
+    fig-align: center
+    css: styles.css
 ---
 
 ```{r, echo=FALSE}
+#| message: false
+#| warning: false
+
 library(tidyverse)
 library(plotly)
 library(janitor)
 
-penguins <- read.csv("data/penguins_lter copy.csv")
 
-penguins <- penguins %>%
+ocean <- read.csv("data/realistic_ocean_climate_dataset copy.csv")
+
+oceans <- ocean %>%
   clean_names()
 ```
 
-The graph below visualizes the relationship between **flipper length (in millimeters)** and **body mass (in grams)** for three penguin species from the **Palmer Penguins dataset**. Each point represents an individual penguin, and the colors distinguish between the species: 🟥 **Adelie Penguins** (*Pygoscelis adeliae*) 🟩 Chinstrap **Penguins** (*Pygoscelis antarctica*) 🟦 **Gentoo Penguins** (*Pygoscelis papua*)
+## SST by Bleaching Severity
 
-Overall, the plot shows a **positive correlation** — penguins with longer flippers tend to have higher body mass.
+```{r, echo=FALSE}
 
-```{r}
-
-library(ggplot2)
-library(plotly)
-library(palmerpenguins)
-
-# Create ggplot first
-p <- ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
-  geom_point() +
-  theme_minimal() +
+ggplot(oceans, aes(x = `bleaching_severity`, y = `sst_c`, fill = `bleaching_severity`)) +
+  geom_boxplot() +
   labs(
-    title = "Palmer Penguins: Flipper Length vs Body Mass",
-    x = "Flipper length (mm)",
-    y = "Body mass (g)"
-  )
-
-# Convert ggplot to interactive Plotly plot
-ggplotly(p)
+    title = "Sea Surface Temperature (SST) by Bleaching Severity",
+    x = "Bleaching Severity Level",
+    y = "SST (°C)"
+  ) +
+  theme_minimal()
 ```
 
-```{r}
-library(knitr)
+SST follows the trend that SST values are higher for observations with High bleaching compared to other categories. Also, all the groups are overlapping around 28-29 C, but the Orange (High) has more of its Boxplot stretching further into the hotter temperatures than the rest. Also, the outliners on both High/Low just show unusually warm or cool events which is normal for ocean activity/temperature.
 
-knitr::kable(penguins)
+## Distribution of Seawater pH
+
+```{r, echo=FALSE}
+library(ggplot2)
+
+ggplot(oceans, aes(x = `p_h_level`)) +
+  geom_histogram(binwidth = 0.02, boundary = 0, closed = "left") +
+  labs(
+    title = "Distribution of Seawater pH",
+    x = "pH",
+    y = "Count"
+  ) +
+  theme_minimal()
+
 ```
 
-```{r}
+The histogram shows that seawater pH globally are highly concentrated at around 8.0 - 8.1 pH. This data set shows there's a little bit of variation within the pH values of the worlds oceans but it is getting more acidic in recent decades due to thinks like Ocean Acidification and Greenhouse gases.
+
+## Sea Surface Temperature OT
+
+```{r, echo=FALSE}
+ggplot(oceans, aes(x = as.Date(date), y = `sst_c`)) +
+  geom_line(alpha = 0.5) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = "Sea Surface Temperature (SST) Over Time",
+    x = "Date",
+    y = "SST (°C)"
+  ) +
+  theme_minimal()
 ```
+
+This is a good graph, it shows the variation of SST (Sea Surface Temperature) and how it fluctuates over time. You can see that there was a slight rise from the beginning to around 2019, but there was a slight downshift in temperature at around 2020. That's probably because not that much human activity was happening during 2020 (Covid-19) But SST is relatively "stable" but it could worsen due to the change of policy on Greenhouse gases.
+
+## Species Observed vs SST and Marine Heatwaves
+
+```{r, echo=FALSE}
+ggplot(oceans, aes(x = `sst_c`, y = `species_observed`, color = `marine_heatwave`)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = "Species Observed vs. SST, by Marine Heatwave Status",
+    x = "SST (°C)",
+    y = "Species Observed"
+  ) +
+  theme_minimal()
+```
+
+This shows that less species are observed as temperature increases. When there's no heatwave (Red) more species are observed, but their number still goes down as SST increases. During heatwaves (Blue), fewer species are seen overall, and their observations fall faster compared to no marine heatwave.

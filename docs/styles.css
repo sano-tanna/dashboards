@@ -1,1 +1,75 @@
 /* css styles */
+/* Overall page look */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f5f7fb;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+}
+
+/* Title block */
+.quarto-title-block {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.quarto-title-block .title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.quarto-title-block .subtitle {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Card-style containers for each viz + explanation */
+.card {
+  background: #ffffff;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+}
+
+/* Center plots inside cards */
+.card .quarto-figure,
+.quarto-figure-center {
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Text inside cards */
+.card p {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+/* Optional: side-by-side layout for plot + text on wide screens */
+@media (min-width: 992px) {
+  .card-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .card-row .card-plot {
+    flex: 1;
+  }
+
+  .card-row .card-text {
+    flex: 1.2;
+  }
+}

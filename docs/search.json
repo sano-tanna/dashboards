@@ -5,5 +5,40 @@
     "title": "More Analysis",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Shifting Seas: Ocean Climate & Marine Life Dataset",
+    "section": "",
+    "text": "SST follows the trend that SST values are higher for observations with High bleaching compared to other categories. Also, all the groups are overlapping around 28-29 C, but the Orange (High) has more of its Boxplot stretching further into the hotter temperatures than the rest. Also, the outliners on both High/Low just show unusually warm or cool events which is normal for ocean activity/temperature."
+  },
+  {
+    "objectID": "index.html#sst-by-bleaching-severity",
+    "href": "index.html#sst-by-bleaching-severity",
+    "title": "Shifting Seas: Ocean Climate & Marine Life Dataset",
+    "section": "",
+    "text": "SST follows the trend that SST values are higher for observations with High bleaching compared to other categories. Also, all the groups are overlapping around 28-29 C, but the Orange (High) has more of its Boxplot stretching further into the hotter temperatures than the rest. Also, the outliners on both High/Low just show unusually warm or cool events which is normal for ocean activity/temperature."
+  },
+  {
+    "objectID": "index.html#distribution-of-seawater-ph",
+    "href": "index.html#distribution-of-seawater-ph",
+    "title": "Shifting Seas: Ocean Climate & Marine Life Dataset",
+    "section": "Distribution of Seawater pH",
+    "text": "Distribution of Seawater pH\n\n\n\n\n\n\n\n\n\nThe histogram shows that seawater pH globally are highly concentrated at around 8.0 - 8.1 pH. This data set shows there’s a little bit of variation within the pH values of the worlds oceans but it is getting more acidic in recent decades due to thinks like Ocean Acidification and Greenhouse gases."
+  },
+  {
+    "objectID": "index.html#sea-surface-temperature-ot",
+    "href": "index.html#sea-surface-temperature-ot",
+    "title": "Shifting Seas: Ocean Climate & Marine Life Dataset",
+    "section": "Sea Surface Temperature OT",
+    "text": "Sea Surface Temperature OT\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThis is a good graph, it shows the variation of SST (Sea Surface Temperature) and how it fluctuates over time. You can see that there was a slight rise from the beginning to around 2019, but there was a slight downshift in temperature at around 2020. That’s probably because not that much human activity was happening during 2020 (Covid-19) But SST is relatively “stable” but it could worsen due to the change of policy on Greenhouse gases."
+  },
+  {
+    "objectID": "index.html#species-observed-vs-sst-and-marine-heatwaves",
+    "href": "index.html#species-observed-vs-sst-and-marine-heatwaves",
+    "title": "Shifting Seas: Ocean Climate & Marine Life Dataset",
+    "section": "Species Observed vs SST and Marine Heatwaves",
+    "text": "Species Observed vs SST and Marine Heatwaves\n\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThis shows that less species are observed as temperature increases. When there’s no heatwave (Red) more species are observed, but their number still goes down as SST increases. During heatwaves (Blue), fewer species are seen overall, and their observations fall faster compared to no marine heatwave."
   }
 ]
